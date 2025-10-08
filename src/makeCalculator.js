@@ -6,25 +6,25 @@
 function makeCalculator() {
   const calculator = {
     result: 0,
-    add: function (a) {
-      calculator.result += a;
+    add(a) {
+      this.result += a;
     },
-    subtract: function (a) {
-      calculator.result -= a;
+    subtract(a) {
+      this.result -= a;
     },
-    multiply: function (a) {
-      calculator.result *= a;
+    multiply(a) {
+      this.result *= a;
     },
-    divide: function (a) {
-      calculator.result /= a;
+    divide(a) {
+      this.result /= a;
     },
-    reset: function () {
-      calculator.result = 0;
+    reset() {
+      this.result = 0;
 
       return this;
     },
-    operate: function (callback, a) {
-      callback(a);
+    operate(cb, a) {
+      cb.call(this, a);
 
       return this;
     },
